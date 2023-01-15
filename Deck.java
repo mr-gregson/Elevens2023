@@ -30,8 +30,18 @@ public class Deck{
     size--;
     return deck.get(size);
   }
+  
+  private static int randInt(int max){
+      return (int) (Math.random() * (max+1));
+  }
 
   public void shuffle(){
+      for (int i = 0; i < deck.size(); ++i){
+          int pos = randInt(i);
+          Card temp = deck.get(i);
+          deck.set(i, deck.get(pos));
+          deck.set(pos, temp);
+      }
   };
 
 
