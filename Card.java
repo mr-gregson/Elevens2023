@@ -12,12 +12,11 @@ public class Card{
    /**
 	 * Creates a new <code>Card</code> instance.
 	 *
-	 * @param cardRank  a <code>String</code> value
+	 * @param rank  a <code>String</code> value
 	 *                  containing the rank of the card
-	 * @param cardSuit  a <code>String</code> value
+	 * @param suit  a <code>String</code> value
 	 *                  containing the suit of the card
-	 * @param cardPointValue an <code>int</code> value
-	 *                  containing the point value of the card
+	 *                 
 	 */
 
 	 //* write the constructor here */
@@ -69,4 +68,16 @@ public class Card{
 	public String toString() {
 		return rank.toString() + " of " + suit.toString();
 	}
+
+  public static void main(String args[]){
+    Card c1 = new Card(Rank.SIX, Suit.HEARTS);
+    Card c2 = new Card(Rank.ACE, Suit.SPADES);
+    Card c3 = new Card(Rank.ACE, Suit.SPADES);
+
+    System.out.println(c1);
+    System.out.println(c2);
+    System.out.println(c1.matches(c3));
+    System.out.println(c2.matches(c3));
+
+  }
 }
