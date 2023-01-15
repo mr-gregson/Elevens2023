@@ -31,7 +31,7 @@ public class Deck{
     return deck.get(size);
   }
 
-  private void shuffle(){
+  public void shuffle(){
   };
 
 

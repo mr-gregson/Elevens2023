@@ -1,3 +1,13 @@
 #BlueJ class context
 comment0.target=Deck
-numComments=1
+comment1.params=
+comment1.target=Deck()
+comment2.params=
+comment2.target=boolean\ isEmpty()
+comment3.params=
+comment3.target=int\ getSize()
+comment4.params=
+comment4.target=Card\ deal()
+comment5.params=
+comment5.target=void\ shuffle()
+numComments=6
