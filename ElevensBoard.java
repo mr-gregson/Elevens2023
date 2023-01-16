@@ -74,17 +74,6 @@ public class ElevensBoard extends Board{
         return false;
     }
     
-    private static int pointValue(Card card){
-        Rank rank = card.getRank();
-        switch (rank){
-            case JACK:
-            case QUEEN:
-            case KING:
-                return 0;
-            default:
-                return rank.ordinal() + 1;
-            }
-    }
 
     /**
      * Check for a JQK in the selected cards.
