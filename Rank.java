@@ -31,9 +31,8 @@ public enum Rank{
     
     @Override
     public String toString(){
-        int ord = this.ordinal();
-        if (ord >= 1 && ord <= 9){
-          return Integer.toString(ord+1);
+        if (pointValue >= 2 &&  pointValue <= 10){
+          return Integer.toString(pointValue);
         }
     return this.name().toLowerCase();
     }
