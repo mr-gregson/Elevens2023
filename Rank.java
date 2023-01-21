@@ -1,5 +1,5 @@
 /**
- * Enumration to represent the rank of a playing card
+ * Enumeration to represent the rank of a playing card
  */
 public enum Rank{
     ACE(1),
