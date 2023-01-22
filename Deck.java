@@ -42,6 +42,7 @@ public class Deck{
           deck.set(i, deck.get(pos));
           deck.set(pos, temp);
       }
+      size = deck.size();
   };
 
 
