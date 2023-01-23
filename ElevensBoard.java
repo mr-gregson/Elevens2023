@@ -12,16 +12,6 @@ public class ElevensBoard extends Board{
     private static final int BOARD_SIZE = 9;
 
     /**
-     * The cards on this board.
-     */
-    private Card[] cards;
-
-    /**
-     * The deck of cards being used to play the current game.
-     */
-    private Deck deck;
-
-    /**
      * Flag used to control debugging print statements.
      */
     private static final boolean I_AM_DEBUGGING = false;
