@@ -12,16 +12,6 @@ public class ElevensBoard extends Board{
     private static final int BOARD_SIZE = 9;
 
     /**
-     * The cards on this board.
-     */
-    private Card[] cards;
-
-    /**
-     * The deck of cards being used to play the current game.
-     */
-    private Deck deck;
-
-    /**
      * Flag used to control debugging print statements.
      */
     private static final boolean I_AM_DEBUGGING = false;
@@ -30,10 +20,11 @@ public class ElevensBoard extends Board{
     /**
      * Creates a new <code>ElevensBoard</code> instance.
      */
-    public ElevensBoard() {
+    public ElevensBoard(){
         super(BOARD_SIZE);
     }
-
+    
+    
     /**
      * Determines if the selected cards form a valid group for removal.
      * In Elevens, the legal groups are (1) a pair of non-face cards
@@ -44,8 +35,7 @@ public class ElevensBoard extends Board{
      *         false otherwise.
      */
     public boolean isLegal(List<Integer> selectedCards) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-        return false;
+        return containsPairSum11(selectedCards) || containsJQK(selectedCards);
     }
 
     /**
@@ -57,7 +47,24 @@ public class ElevensBoard extends Board{
      *         false otherwise.
      */
     public boolean anotherPlayIsPossible() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        ArrayList<Integer> selected = new ArrayList<>();
+        selected.add(0);
+        selected.add(0);
+        
+        for (int i = 0; i < BOARD_SIZE; ++i){
+            selected.set(0,i);
+            for (int j = i+1; j < BOARD_SIZE; ++j){
+                selected.set(1,j);
+                if (containsPairSum11(selected))
+                    return true;
+                for (int k = j+1; k < BOARD_SIZE; ++k){
+                    selected.add(k);
+                    if (containsJQK(selected))
+                        return true;
+                    selected.remove(2);
+                }
+            }
+        }
         return false;
     }
     
@@ -70,7 +77,15 @@ public class ElevensBoard extends Board{
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        if (selectedCards.size() == 2){
+            Card card1 = cardAt(selectedCards.get(0));
+            Card card2 = cardAt(selectedCards.get(1));
+            if (card1 == null || card2 == null)
+                return false;
+            int pv1 = card1.getRank().getPointValue();
+            int pv2 = card2.getRank().getPointValue();
+            return pv1 + pv2 == 11;
+        }
         return false;
     }
     
@@ -84,7 +99,23 @@ public class ElevensBoard extends Board{
      *              include a jack, a queen, and a king; false otherwise.
      */
     private boolean containsJQK(List<Integer> selectedCards) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        int[][] perms = {{0,1,2}, {0,2,1}, {1,0,2}, {1,2,0}, {2,0,1}, {2,1,0}};
+        if (selectedCards.size() != 3) 
+            return false;
+        Card[] cards = new Card[3];
+        for (int i = 0; i < 3; ++i) {
+            cards[i] = cardAt(selectedCards.get(i));
+            if (cards[i] == null) return false;
+        }
+        Rank[] ranks = new Rank[3];
+        for (int i = 0; i < 3; ++i) 
+            ranks[i] = cards[i].getRank();        
+        for (int[] perm : perms){
+            if (ranks[perm[0]] == Rank.JACK 
+                && ranks[perm[1]] == Rank.QUEEN 
+                && ranks[perm[2]] == Rank.KING) 
+                return true; 
+        }
         return false;
     }
 }

@@ -64,11 +64,12 @@ public class Card{
      * @return a <code>String</code> containing the rank, suit,
      *         and point value of the card.
      */
+    /*
     @Override
     public String toString() {
         return rank.toString() + " of " + suit.toString();
     }
-
+*/
   public static void main(String args[]){
     Card c1 = new Card(Rank.SIX, Suit.HEARTS);
     Card c2 = new Card(Rank.ACE, Suit.SPADES);

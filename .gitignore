@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 *.class
+=======
+*.class
+*.def
+*.defs
+*.ctxt
+>>>>>>> refs/remotes/origin/main
