@@ -1,5 +1,11 @@
 #BlueJ class context
 comment0.target=Rank
-comment1.params=
-comment1.target=java.lang.String\ toString()
-numComments=2
+comment0.text=\r\n\ Enumeration\ to\ represent\ the\ rank\ of\ a\ playing\ card\r\n
+comment1.params=pointValue
+comment1.target=Rank(int)
+comment2.params=
+comment2.target=int\ getPointValue()
+comment2.text=\r\n\ Returns\ the\ point\ value\ associated\ with\ the\ rank\ of\ a\ card\r\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
