@@ -262,16 +262,10 @@ public class CardGameGUI extends JFrame implements ActionListener {
      * @return String representation of the image
      */
     private String imageFileName(Card c, boolean isSelected) {
-        String str = "cards/";
         if (c == null) {
             return "cards/back1.GIF";
         }
-        str += c.getRank().toString() + c.getSuit().toString();
-        if (isSelected) {
-            str += "S";
-        }
-        str += ".GIF";
-        return str;
+        return "cards/" + c.toString() + (isSelected? "S" : "") + ".GIF";
     }
 
     /**

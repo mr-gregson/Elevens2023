@@ -64,9 +64,12 @@ public class Card{
      * @return a <code>String</code> containing the rank, suit,
      *         and point value of the card.
      */
+
     @Override
     public String toString() {
-        return rank.toString() + " of " + suit.toString();
+        int pointValue = rank.getPointValue();
+        String s = (pointValue <= 1)? rank.name() : Integer.toString(pointValue);
+        return (s + suit.toString()).toLowerCase();
     }
 
   public static void main(String args[]){
